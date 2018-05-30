@@ -25,6 +25,7 @@ router.get('/', (req, res) => {
 
       const query = `
       SELECT 
+        r.id,
         bl.address AS beginAddress,
         bg.latitude AS beginLatitude,
         bg.longitude AS beginLongitude, 
@@ -56,7 +57,7 @@ router.get('/', (req, res) => {
           
         JOIN dv_stuff stuff
           ON stuff.id = r.stuff_id
-        where bg.id not in (?)
+        where r.id not in (?)
         having distance <= ?
         order by distance asc
         limit ?
@@ -83,7 +84,7 @@ router.get('/', (req, res) => {
 });
 
 function queryParameterArray(arr) {
-  return arr.length == 0 ? -1 : arr;
+  return arr.length == 0 ? [-1] : arr;
 }
 
 
