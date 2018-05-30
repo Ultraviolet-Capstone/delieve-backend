@@ -38,6 +38,7 @@ router.get('/', (req, res) => {
         stuff.name AS stuffName,
         stuff.size AS stuffSize,
         stuff.weight AS stuffWeight,
+        stuff.stuff_code AS stuffCode,
         
         (6371*acos(cos(radians(?))*cos(radians(bg.latitude))*cos(radians(bg.longitude)
         -radians(?))+sin(radians(?))*sin(radians(bg.latitude)))) AS distance,
