@@ -11,6 +11,7 @@ const client = redis.createClient();
 
 const queryLimit = 1;
 const distance = 1;
+const progress_status = 'PROGRESS';
 
 router.get('/', (req, res) => {
 
@@ -58,11 +59,12 @@ router.get('/', (req, res) => {
         JOIN dv_stuff stuff
           ON stuff.id = r.stuff_id
         where r.id not in (?)
+        and r.status = ?
         having distance <= ?
         order by distance asc
         limit ?
         `;
-      const parameters = [lat, long, lat, queryParameterArray(requestHistories), distance, queryLimit];
+      const parameters = [lat, long, lat, queryParameterArray(requestHistories), progress_status, distance, queryLimit];
 
       mysqlPool.query(query, parameters) 
         .then(rows => {
