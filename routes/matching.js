@@ -10,7 +10,7 @@ const redis = require('redis');
 const client = redis.createClient();
 
 const queryLimit = 1;
-const distance = 1;
+const distance = 10;
 const progress_status = 'PROGRESS';
 
 router.get('/', (req, res) => {
