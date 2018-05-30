@@ -85,6 +85,12 @@ router.get('/', (req, res) => {
   }); 
 });
 
+router.get('/flush', (req, res) => {
+  var { delivererId } = req.query;
+  client.del(delivererId);
+  res.status(200).send('flushed');
+});
+
 function queryParameterArray(arr) {
   return arr.length == 0 ? [-1] : arr;
 }
