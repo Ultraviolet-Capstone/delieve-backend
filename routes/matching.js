@@ -89,7 +89,7 @@ router.get('/', (req, res) => {
             return res.status(404).send(errorMessage.NO_MATCHED_REQUEST);
           }
           else {
-            requestHistories.push(rows[0].id);
+            requestHistories.push(rows[0].requestId);
             client.set(userId, JSON.stringify(requestHistories));
             res.status(200).json(rows[0]);
           }
