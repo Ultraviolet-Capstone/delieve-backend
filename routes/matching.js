@@ -44,7 +44,16 @@ router.get('/', (req, res) => {
         -radians(?))+sin(radians(?))*sin(radians(bg.latitude)))) AS distance,
 
         r.begin_time AS beginTime,  
-        r.finish_time AS finishTime
+        r.finish_time AS finishTime,
+
+        sender.name AS senderName,
+        sender.phone AS senderPhone,
+        sender.email AS senderEmail,
+        sender.birthday AS senderBirthday,
+
+        reciever.phone As recieverPhone
+
+
         
       FROM dv_request r
         JOIN dv_location bl
@@ -59,6 +68,13 @@ router.get('/', (req, res) => {
           
         JOIN dv_stuff stuff
           ON stuff.id = r.stuff_id
+
+        JOIN dv_user sender
+        ON sender.id = r.sender_id
+
+        JOIN dv_reciever reciever
+        ON reciever.id = r.reciever_id
+
         where r.id not in (?)
         and r.status = ?
         having distance <= ?
