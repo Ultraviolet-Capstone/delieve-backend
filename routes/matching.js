@@ -26,7 +26,7 @@ router.get('/', (req, res) => {
 
       const query = `
       SELECT 
-        r.id,
+        r.id AS requestId,
         bl.address AS beginAddress,
         bg.latitude AS beginLatitude,
         bg.longitude AS beginLongitude, 
