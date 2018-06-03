@@ -50,6 +50,7 @@ router.get('/', (req, res) => {
         sender.phone AS senderPhone,
         sender.email AS senderEmail,
         sender.birthday AS senderBirthday,
+        sender.provider_self_url AS senderSelfiURL,
 
         reciever.phone As recieverPhone
 
