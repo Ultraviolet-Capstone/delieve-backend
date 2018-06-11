@@ -54,7 +54,6 @@ router.get('/', (req, res) => {
         sender.birthday AS senderBirthday,
         sender.provider_selfi_url AS senderSelfiURL,
 
-        m.status AS matchingStatus,
 
         reciever.phone As recieverPhone
 
