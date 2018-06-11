@@ -43,8 +43,8 @@ router.get('/', (req, res) => {
         (6371*acos(cos(radians(?))*cos(radians(bg.latitude))*cos(radians(bg.longitude)
         -radians(?))+sin(radians(?))*sin(radians(bg.latitude)))) AS distanceToDeparture,
 
-        (6371*acos(cos(radians(?))*cos(radians(bg.latitude))*cos(radians(bg.longitude)
-        -radians(?))+sin(radians(?))*sin(radians(bg.latitude)))) AS distanceToDestination,
+        (6371*acos(cos(radians(fg.latitude))*cos(radians(bg.latitude))*cos(radians(bg.longitude)
+        -radians(fg.longitude))+sin(radians(fg.latitude))*sin(radians(bg.latitude)))) AS distanceToDestination,
 
         r.begin_time AS beginTime,  
         r.finish_time AS finishTime,
