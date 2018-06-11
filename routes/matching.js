@@ -85,7 +85,7 @@ router.get('/', (req, res) => {
         where r.id not in (?)
         and r.status = ?
         having distanceToDeparture <= ?
-        order by distance asc
+        order by distanceToDeparture asc
         limit ?
         `;
       const parameters = [lat, long, lat, queryParameterArray(requestHistories), progress_status, distance, queryLimit];
