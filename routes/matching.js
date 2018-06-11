@@ -46,11 +46,15 @@ router.get('/', (req, res) => {
         r.begin_time AS beginTime,  
         r.finish_time AS finishTime,
 
+        r.price AS price,
+
         sender.name AS senderName,
         sender.phone AS senderPhone,
         sender.email AS senderEmail,
         sender.birthday AS senderBirthday,
         sender.provider_selfi_url AS senderSelfiURL,
+
+        m.status AS matchingStatus,
 
         reciever.phone As recieverPhone
 
