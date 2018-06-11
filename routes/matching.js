@@ -84,7 +84,7 @@ router.get('/', (req, res) => {
 
         where r.id not in (?)
         and r.status = ?
-        having distance <= ?
+        having distanceToDeparture <= ?
         order by distance asc
         limit ?
         `;
